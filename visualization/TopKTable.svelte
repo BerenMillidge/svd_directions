@@ -22,7 +22,7 @@
         // ndarrays don't have a map function, so we have to do this the hard way
         let sub_arr = [];
         for (let i = 0; i < ndarray_1d_slice.shape[0]; i++) {
-            sub_arr.push(arr[Math.round(ndarray_1d_slice.get(i))]);
+            sub_arr.push(arr[Math.ceil(ndarray_1d_slice.get(i))]);
         }
         return sub_arr;
     }
@@ -167,6 +167,7 @@
                 {#each range(topk_inds.shape[0]) as _, tok_i}
                     <tr style="text-align:center">
                         {#each idx_into_arr_from_ndarray_slice(tokens, topk_inds.pick(tok_i, focus_layer, null)) as tok, dir_j}
+
                             <td
                                 class="token"
                                 style="background: {toColor(
