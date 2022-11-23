@@ -1,4 +1,8 @@
-from typing import List, Union, Literal
+from typing import List, Union
+try:
+    from typing import Literal
+except ImportError:
+    from typing_extensions import Literal
 
 import numpy as np
 import torch
